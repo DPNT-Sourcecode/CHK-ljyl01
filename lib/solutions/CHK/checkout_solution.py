@@ -45,7 +45,11 @@ class CheckoutSolution:
         total_D_price = item_counts["D"] * prices["D"]
         total_E_price = item_counts["E"] * prices["E"]
 
+        num_F = item_counts["F"]
+        total_F_price = (num_F // 3) * 2 * prices["F"] + (num_F % 3) * prices["F"]
+
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price
+
 
 
 
