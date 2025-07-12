@@ -43,10 +43,10 @@ class CheckoutSolution:
 
     BUY_GET_X_FREE_OFFERS = {
         "E": (2, "B"),
-        "F": (2, "F"),
+        "F": (3, "F"),
         "N": (3, "M"),
         "R": (3, "Q"),
-        "U": (3, "U")
+        "U": (4, "U")
     }
 
     # skus = unicode string
@@ -98,4 +98,5 @@ class CheckoutSolution:
         # total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
         #
         # return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
 
