@@ -23,6 +23,7 @@ class CheckoutSolution:
             "C": 0,
             "D": 0,
             "E": 0,
+            "F": 0,
         }
 
         for sku in skus:
@@ -48,10 +49,4 @@ class CheckoutSolution:
         num_F = item_counts["F"]
         total_F_price = (num_F // 3) * 2 * prices["F"] + (num_F % 3) * prices["F"]
 
-        return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price
-
-
-
-
-
-
+        return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
