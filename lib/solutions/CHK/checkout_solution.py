@@ -75,7 +75,7 @@ class CheckoutSolution:
                 item_counts[sku] %= special_offer[0]
 
         for sku, item_price in item_prices.items():
-            item_price += item_counts[sku] * self.PRICES[sku]
+            item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return sum(item_prices.values())
 
@@ -98,3 +98,4 @@ class CheckoutSolution:
         # total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
         #
         # return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
