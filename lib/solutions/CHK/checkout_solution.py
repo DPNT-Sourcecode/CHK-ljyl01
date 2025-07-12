@@ -12,6 +12,13 @@ class CheckoutSolution:
             "D": 15,
             "E": 40,
             "F": 10,
+            "G": 20,
+            "H": 10,
+            "I": 35,
+            "J": 60,
+            "K": 80,
+            "L": 90,
+            "M" : 15,
         }
         special_offers = {
             "A": (3, 130),
@@ -50,3 +57,4 @@ class CheckoutSolution:
         total_F_price = (num_F // 3) * 2 * prices["F"] + (num_F % 3) * prices["F"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
