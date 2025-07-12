@@ -15,11 +15,14 @@ class CheckoutSolution:
             "C": 0,
             "D": 0,
         }
+
         for sku in skus:
             if sku not in prices:
                 return -1
             item_counts[sku] += 1
 
+        num_A = item_counts["A"]
+        total_A_price = math.floor(num_A)
 
 
 
