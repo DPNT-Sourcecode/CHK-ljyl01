@@ -79,24 +79,6 @@ class CheckoutSolution:
 
         return sum(item_prices.values())
 
-        # num_E = item_counts["E"]
-        # num_free_B = num_E // 2
-        # num_B = max(item_counts["B"] - num_free_B, 0)
-        #
-        # num_A = item_counts["A"]
-        # num_5A = num_A // 5
-        # remainder_A = num_A % 5
-        # total_A_price = num_5A * 200 + remainder_A // 3 * 130 + (remainder_A % 3) * self.PRICES["A"]
-        #
-        # total_B_price = (num_B // self.SPECIAL_OFFERS["B"][0]) * self.SPECIAL_OFFERS["B"][1] + (num_B % self.SPECIAL_OFFERS["B"][0]) * self.PRICES["B"]
-        #
-        # total_C_price = item_counts["C"] * self.PRICES["C"]
-        # total_D_price = item_counts["D"] * self.PRICES["D"]
-        # total_E_price = item_counts["E"] * self.PRICES["E"]
-        #
-        # num_F = item_counts["F"]
-        # total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
-        #
-        # return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
 
 
