@@ -52,12 +52,7 @@ class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
         item_counts = {
-            "A": 0,
-            "B": 0,
-            "C": 0,
-            "D": 0,
-            "E": 0,
-            "F": 0,
+            sku: 0 for sku in self.PRICES.keys()
         }
 
         for sku in skus:
@@ -84,6 +79,7 @@ class CheckoutSolution:
         total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
 
 
 
