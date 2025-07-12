@@ -50,7 +50,7 @@ class CheckoutSolution:
     }
 
     GROUP_DISCOUNT_OFFERS = {
-        ["S", "T", "X", "Y", "Z"]: (3, 45)
+        ("S", "T", "X", "Y", "Z"): (3, 45)
     }
 
     # skus = unicode string
@@ -68,9 +68,12 @@ class CheckoutSolution:
                 return -1
             item_counts[sku] += 1
 
+        total_price = 0
+
         for sku_group, offer in self.GROUP_DISCOUNT_OFFERS.items():
             total_num_of_skus_in_group = sum(item_counts[sku] for sku in sku_group)
             num_times_to_apply_discount = total_num_of_skus_in_group // offer[0]
+            total_price += offer[1] * num_times_to_apply_discount
             order_from_most_expensive = sorted(sku_group, key=lambda x: self.PRICES[x], reverse=True)
             for _ in range(num_times_to_apply_discount):
                 for sku in order_from_most_expensive:
@@ -92,13 +95,5 @@ class CheckoutSolution:
         for sku, item_price in item_prices.items():
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
-        return sum(item_prices.values())
-
-
-
-
-
-
-
-
+        return total_price + sum(item_prices.values())
 
