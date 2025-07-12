@@ -21,7 +21,7 @@ class CheckoutSolution:
         "P": 50,
         "Q": 30,
         "R": 50,
-        "S": 30,
+        "S": 20,
         "T": 20,
         "U": 40,
         "V": 50,
@@ -47,6 +47,10 @@ class CheckoutSolution:
         "N": (3, "M"),
         "R": (3, "Q"),
         "U": (4, "U")
+    }
+
+    GROUP_DISCOUNT_OFFERS = {
+        ("S", "T", "X", "Y", "Z"): (3, 45)
     }
 
     # skus = unicode string
@@ -78,6 +82,7 @@ class CheckoutSolution:
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return sum(item_prices.values())
+
 
 
 
