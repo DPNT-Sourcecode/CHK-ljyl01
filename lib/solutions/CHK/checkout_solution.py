@@ -13,7 +13,7 @@ class CheckoutSolution:
         "H": 10,
         "I": 35,
         "J": 60,
-        "K": 80,
+        "K": 70,
         "L": 90,
         "M": 15,
         "N": 40,
@@ -100,6 +100,7 @@ class CheckoutSolution:
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return total_price + sum(item_prices.values())
+
 
 
 
