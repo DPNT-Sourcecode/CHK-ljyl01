@@ -70,6 +70,7 @@ class CheckoutSolution:
 
         for sku_group, offer in self.GROUP_DISCOUNT_OFFERS.items():
             total_num_of_skus_in_group = sum(item_counts[sku] for sku in sku_group)
+            num_times_to_apply_discount = total_num_of_skus_in_group // offer[0]
 
         for sku, offer in self.BUY_GET_X_FREE_OFFERS.items():
             num_free_items = item_counts[sku] // offer[0]
@@ -85,6 +86,7 @@ class CheckoutSolution:
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return sum(item_prices.values())
+
 
 
 
