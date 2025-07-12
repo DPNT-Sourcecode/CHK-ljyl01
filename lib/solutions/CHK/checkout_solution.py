@@ -26,9 +26,9 @@ class CheckoutSolution:
         "U": 40,
         "V": 50,
         "W": 20,
-        "X": 90,
-        "Y": 10,
-        "Z": 50,
+        "X": 17,
+        "Y": 20,
+        "Z": 21,
     }
 
     SPECIAL_OFFERS = {
@@ -68,6 +68,9 @@ class CheckoutSolution:
                 return -1
             item_counts[sku] += 1
 
+        for sku_group, offer in self.GROUP_DISCOUNT_OFFERS.items():
+            total_num_of_skus_in_group = sum(item_counts[sku] for sku in sku_group)
+
         for sku, offer in self.BUY_GET_X_FREE_OFFERS.items():
             num_free_items = item_counts[sku] // offer[0]
             free_item = offer[1]
@@ -82,6 +85,7 @@ class CheckoutSolution:
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return sum(item_prices.values())
+
 
 
 
