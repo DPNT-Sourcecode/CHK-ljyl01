@@ -5,6 +5,17 @@ class TestCheckout():
     def test_checkout(self):
         assert CheckoutSolution().checkout("") == 0
         assert CheckoutSolution().checkout("A") == 50
+        assert CheckoutSolution().checkout("AA") == 100
+        assert CheckoutSolution().checkout("AAA") == 130
+        assert CheckoutSolution().checkout("AAAA") == 180
         assert CheckoutSolution().checkout("B") == 30
+        assert CheckoutSolution().checkout("BB") == 45
+        assert CheckoutSolution().checkout("BBB") == 75
+        assert CheckoutSolution().checkout("C") == 20
+        assert CheckoutSolution().checkout("D") == 15
+        assert CheckoutSolution().checkout("AB") == 80
+        assert CheckoutSolution().checkout("ABB") == 95
+        assert CheckoutSolution().checkout("-") == -1
+
 
 
