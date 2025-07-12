@@ -31,18 +31,26 @@ class CheckoutSolution:
         "Z": 50,
     }
 
+    SPECIAL_OFFERS = {
+        "A": [(5, 200), (3, 130)],
+        "B": [(2, 45)],
+        "H": [(10, 80), (5, 45)],
+        "K": [(2, 150)],
+        "P": [(5, 200)],
+        "Q": [(3, 80)],
+        "V": [(3, 130), (2, 90)],
+    }
+
+    BUY_GET_X_FREE_OFFERS = {
+        "E": (2, "B"),
+        "F": (2, "F"),
+        "N": (3, "M"),
+        "R": (3, "Q"),
+        "U": (3, "U")
+    }
+
     # skus = unicode string
     def checkout(self, skus):
-        special_offers = {
-            "A": [(5, 200), (3, 130)],
-            "B": [(2, 45)],
-            "H": [(10, 80), (5, 45)],
-            "K": [(2, 150)],
-            "P": [(5, 200)],
-            "Q": [(3, 80)],
-            "V": [(3, 130), (2, 90)],
-        }
-
         item_counts = {
             "A": 0,
             "B": 0,
@@ -53,7 +61,7 @@ class CheckoutSolution:
         }
 
         for sku in skus:
-            if sku not in PRICES:
+            if sku not in self.PRICES:
                 return -1
             item_counts[sku] += 1
 
@@ -64,18 +72,19 @@ class CheckoutSolution:
         num_A = item_counts["A"]
         num_5A = num_A // 5
         remainder_A = num_A % 5
-        total_A_price = num_5A * 200 + remainder_A // 3 * 130 + (remainder_A % 3) * PRICES["A"]
+        total_A_price = num_5A * 200 + remainder_A // 3 * 130 + (remainder_A % 3) * self.PRICES["A"]
 
-        total_B_price = (num_B // special_offers["B"][0]) * special_offers["B"][1] + (num_B % special_offers["B"][0]) * PRICES["B"]
+        total_B_price = (num_B // self.SPECIAL_OFFERS["B"][0]) * self.SPECIAL_OFFERS["B"][1] + (num_B % self.SPECIAL_OFFERS["B"][0]) * self.PRICES["B"]
 
-        total_C_price = item_counts["C"] * PRICES["C"]
-        total_D_price = item_counts["D"] * PRICES["D"]
-        total_E_price = item_counts["E"] * PRICES["E"]
+        total_C_price = item_counts["C"] * self.PRICES["C"]
+        total_D_price = item_counts["D"] * self.PRICES["D"]
+        total_E_price = item_counts["E"] * self.PRICES["E"]
 
         num_F = item_counts["F"]
-        total_F_price = (num_F // 3) * 2 * PRICES["F"] + (num_F % 3) * PRICES["F"]
+        total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
 
 
 
