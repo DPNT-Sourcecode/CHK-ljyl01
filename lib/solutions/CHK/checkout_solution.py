@@ -1,3 +1,5 @@
+from email.utils import specialsre
+
 
 class CheckoutSolution:
 
@@ -8,6 +10,10 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
+        }
+        special_offers = {
+            "A": (3, 130),
+            "B": (2, 45),
         }
         item_counts = {
             "A": 0,
@@ -22,10 +28,12 @@ class CheckoutSolution:
             item_counts[sku] += 1
 
         num_A = item_counts["A"]
-        total_A_price = math.floor(num_A)
+        total_A_price = (num_A // special_offers["A"][0]) * prices["A"] + (num_A % special_offers["A"][0]) * special_offers["A"][1]
 
+        num_B = item_counts["B"]
+        total_B_price = (num_B // special_offers["B"][0]) * prices["B"] + (num_B % special_offers["B"][0]) * special_offers["B"][1]
 
+        total_C_price = item_counts["C"] * prices["C"]
+        total_D_price = item_counts["D"] * prices["D"]
 
-
-
-
+        return total_A_price + total_B_price + total_C_price + total_D_price
