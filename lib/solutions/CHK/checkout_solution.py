@@ -75,15 +75,16 @@ class CheckoutSolution:
             num_times_to_apply_discount = total_num_of_skus_in_group // offer[0]
             total_price += offer[1] * num_times_to_apply_discount
             order_from_most_expensive = sorted(sku_group, key=lambda x: self.PRICES[x], reverse=True)
-            times_applied_discount = 0
-            while times_applied_discount < num_times_to_apply_discount * offer[0]:
+            items_discounted = 0
+            while items_discounted < num_times_to_apply_discount * offer[0]:
                 if len(order_from_most_expensive) == 0:
                     break
-                free_sku = order_from_most_expensive[0]
-                if item_counts[free_sku] > 0:
-                    item_counts[free_sku] -= 1
+                sku_to_remove = order_from_most_expensive[0]
+                if item_counts[sku_to_remove] > 0:
+                    item_counts[sku_to_remove] -= 1
+                    items_discounted += 1
                 else:
-                    order_from_most_expensive.remove(free_sku)
+                    order_from_most_expensive.remove(sku_to_remove)
 
         for sku, offer in self.BUY_GET_X_FREE_OFFERS.items():
             num_free_items = item_counts[sku] // offer[0]
@@ -99,6 +100,7 @@ class CheckoutSolution:
             item_prices[sku] += item_counts[sku] * self.PRICES[sku]
 
         return total_price + sum(item_prices.values())
+
 
 
 
