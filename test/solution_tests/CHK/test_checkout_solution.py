@@ -17,4 +17,11 @@ class TestCheckout():
         assert CheckoutSolution().checkout("ABB") == 95
         assert CheckoutSolution().checkout("-") == -1
         assert CheckoutSolution().checkout("a") == -1
-        assert CheckoutSolution().checkout("a") == -1
+        assert CheckoutSolution().checkout("E") == 40
+        assert CheckoutSolution().checkout("BEE") == 80
+        assert CheckoutSolution().checkout("BEEE") == 120
+        assert CheckoutSolution().checkout("BBEE") == 110
+        assert CheckoutSolution().checkout("BBEEE") == 150
+        assert CheckoutSolution().checkout("BBEEEE") == 160
+        assert CheckoutSolution().checkout("BEEEE") == 130
+
