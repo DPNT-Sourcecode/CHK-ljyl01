@@ -10,6 +10,7 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
+            "E": 40,
         }
         special_offers = {
             "A": (3, 130),
@@ -20,12 +21,15 @@ class CheckoutSolution:
             "B": 0,
             "C": 0,
             "D": 0,
+            "E": 0,
         }
 
         for sku in skus:
             if sku not in prices:
                 return -1
             item_counts[sku] += 1
+
+        num_E = item_counts["E"]
 
         num_A = item_counts["A"]
         total_A_price = (num_A // special_offers["A"][0]) * special_offers["A"][1] + (num_A % special_offers["A"][0]) * prices["A"]
@@ -37,4 +41,5 @@ class CheckoutSolution:
         total_D_price = item_counts["D"] * prices["D"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price
+
 
