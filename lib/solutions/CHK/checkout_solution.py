@@ -11,6 +11,7 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
             "E": 40,
+            "F": 10,
         }
         special_offers = {
             "A": (3, 130),
@@ -45,6 +46,7 @@ class CheckoutSolution:
         total_E_price = item_counts["E"] * prices["E"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price
+
 
 
 
