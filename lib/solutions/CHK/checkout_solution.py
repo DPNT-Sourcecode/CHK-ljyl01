@@ -55,10 +55,23 @@ class CheckoutSolution:
             sku: 0 for sku in self.PRICES.keys()
         }
 
+        item_prices = {
+            sku: 0 for sku in self.PRICES.keys()
+        }
+
         for sku in skus:
             if sku not in self.PRICES:
                 return -1
             item_counts[sku] += 1
+
+        for sku, offer in self.BUY_GET_X_FREE_OFFERS.items():
+            num_free_items = item_counts[sku] // offer[0]
+            free_item = offer[1]
+            item_counts[free_item] = max(item_counts[free_item] - num_free_items, 0)
+
+        for sku, special_offers in self.SPECIAL_OFFERS.items():
+            for special_offer in special_offers:
+
 
         num_E = item_counts["E"]
         num_free_B = num_E // 2
@@ -79,6 +92,7 @@ class CheckoutSolution:
         total_F_price = (num_F // 3) * 2 * self.PRICES["F"] + (num_F % 3) * self.PRICES["F"]
 
         return total_A_price + total_B_price + total_C_price + total_D_price + total_E_price + total_F_price
+
 
 
 
