@@ -52,8 +52,6 @@ class TestCheckout():
         assert CheckoutSolution().checkout("STXZZZZ") == 107
         assert CheckoutSolution().checkout("K") == 70
         assert CheckoutSolution().checkout("ABCDEFGHIJKLMNOPQRSTUVW") == 795
-
-
-
-
-
+        assert CheckoutSolution().checkout("KK") == 120
+        assert CheckoutSolution().checkout("KKK") == 190
+        assert CheckoutSolution().checkout("KKKK") == 240
