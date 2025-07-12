@@ -23,5 +23,7 @@ class TestCheckout():
         assert CheckoutSolution().checkout("BBEE") == 110
         assert CheckoutSolution().checkout("BBEEE") == 150
         assert CheckoutSolution().checkout("BBEEEE") == 160
-        assert CheckoutSolution().checkout("BEEEE") == 130
+        assert CheckoutSolution().checkout("BEEEE") == 160
+        assert CheckoutSolution().checkout("ABEEEE") == 210
+
 
